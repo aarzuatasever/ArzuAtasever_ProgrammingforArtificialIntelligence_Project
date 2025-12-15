@@ -1,0 +1,14 @@
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "ZIP_CODE" TYPE text;
+
+UPDATE public.violence_victims_raw
+SET "ZIP_CODE" = NULLIF(trim("ZIP_CODE"), '');
+
+
+UPDATE public.violence_victims_raw
+SET "ZIP_CODE" = NULL
+WHERE "ZIP_CODE" IS NOT NULL AND "ZIP_CODE" !~ '^[0-9]+$';
+
+
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "ZIP_CODE" TYPE int USING "ZIP_CODE"::int;

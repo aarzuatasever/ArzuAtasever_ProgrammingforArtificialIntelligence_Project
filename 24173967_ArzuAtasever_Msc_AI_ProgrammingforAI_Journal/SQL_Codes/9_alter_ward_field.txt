@@ -1,0 +1,14 @@
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "WARD" TYPE text;
+
+
+UPDATE public.violence_victims_raw
+SET "WARD" = NULLIF(trim("WARD"), '');
+
+UPDATE public.violence_victims_raw
+SET "WARD" = NULL
+WHERE "WARD" IS NOT NULL AND "WARD" !~ '^[0-9]+$';
+
+
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "WARD" TYPE int USING "WARD"::int;

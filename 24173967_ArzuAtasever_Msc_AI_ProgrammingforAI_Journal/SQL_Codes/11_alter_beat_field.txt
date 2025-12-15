@@ -1,0 +1,14 @@
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "BEAT" TYPE text;
+
+
+UPDATE public.violence_victims_raw
+SET "BEAT" = NULLIF(trim("BEAT"), '');
+
+UPDATE public.violence_victims_raw
+SET "BEAT" = NULL
+WHERE "BEAT" IS NOT NULL AND "BEAT" !~ '^[0-9]+$';
+
+
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "BEAT" TYPE int USING "BEAT"::int;

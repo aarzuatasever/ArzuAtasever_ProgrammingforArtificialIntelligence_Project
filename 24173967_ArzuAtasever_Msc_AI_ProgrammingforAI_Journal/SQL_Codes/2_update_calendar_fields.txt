@@ -1,0 +1,9 @@
+UPDATE public.violence_victims_raw 
+SET 
+yearmonthday_char = to_char(to_timestamp("DATE", 'MM/DD/YYYY HH12:MI:SS AM'), 'YYYYMMDD'),
+yearmonth_char = to_char(to_timestamp("DATE", 'MM/DD/YYYY HH12:MI:SS AM'), 'YYYYMM'),
+year_char = to_char(to_timestamp("DATE", 'MM/DD/YYYY HH12:MI:SS AM'), 'YYYY'),
+month_char = to_char(to_timestamp("DATE", 'MM/DD/YYYY HH12:MI:SS AM'), 'MM'),
+day_char = to_char(to_timestamp("DATE", 'MM/DD/YYYY HH12:MI:SS AM'), 'DD'),
+time_only = to_timestamp("DATE", 'MM/DD/YYYY HH12:MI:SS AM')::time
+;

@@ -1,0 +1,35 @@
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_gender CHECK ("SEX" IN ('M','F','UNKNOWN'));
+
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_positive_district CHECK ("DISTRICT" >= 0);
+
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_date_yyyymmdd CHECK (yearmonthday_char ~ '^[0-9]{8}$');
+
+CREATE INDEX idx_victims_year ON public.violence_victims_raw(year_char);
+CREATE INDEX idx_victims_year_month ON public.violence_victims_raw(year_char, month_char);
+CREATE INDEX idx_victims_case_number ON public.violence_victims_raw("CASE_NUMBER");
+CREATE INDEX idx_victims_unique_id ON public.violence_victims_raw("UNIQUE_ID");
+
+CREATE UNIQUE INDEX idx_unique_caseid ON public.violence_victims_raw("UNIQUE_ID");
+CREATE INDEX idx_notes_text ON public.violence_victims_raw USING gin(to_tsvector('english', "VICTIMIZATION_IUCR_SECONDARY"));
+
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_month_valid CHECK ("MONTH" >= 1 AND "MONTH" <= 12);
+
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_zip_valid CHECK ("ZIP_CODE" > 0);
+
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_casenumber_not_empty CHECK (length("CASE_NUMBER") > 0);
+
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_uniqueid_length CHECK (length("UNIQUE_ID") BETWEEN 1 AND 300);
+
+
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_latitude_valid CHECK ("LATITUDE" BETWEEN -90 AND 90);
+
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT check_longitude_valid CHECK ("LONGITUDE" BETWEEN -180 AND 180);

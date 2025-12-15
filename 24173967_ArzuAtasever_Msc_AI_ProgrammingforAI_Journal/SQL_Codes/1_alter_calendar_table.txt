@@ -1,0 +1,8 @@
+ALTER TABLE public.violence_victims_raw 
+ADD COLUMN yearmonthday_char varchar(8),
+ADD COLUMN yearmonth_char varchar(6),
+ADD COLUMN year_char varchar(4),
+ADD COLUMN month_char varchar(2),
+ADD COLUMN day_char varchar(2),
+ADD COLUMN time_only time
+;

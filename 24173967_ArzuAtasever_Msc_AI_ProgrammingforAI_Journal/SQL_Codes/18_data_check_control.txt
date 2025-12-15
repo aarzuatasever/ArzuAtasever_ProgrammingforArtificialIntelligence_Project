@@ -1,0 +1,21 @@
+-- duplicates
+SELECT "UNIQUE_ID", count(*) FROM public.violence_victims_raw GROUP BY 1 HAVING count(*) > 1;
+
+-- Null oranları (clean)
+SELECT 
+  COUNT(*) AS total_rows,
+  COUNT(*) FILTER (WHERE "DATE" IS NULL) AS date_nulls,
+  COUNT(*) FILTER (WHERE "UNIQUE_ID" IS NULL) AS uniqueid_nulls,
+  COUNT(*) FILTER (WHERE "LATITUDE" IS NULL OR "LONGITUDE" IS NULL) AS missing_coords,
+  COUNT(*) FILTER (WHERE "AGE" IS NULL) AS missing_age
+FROM violence_victims_raw;
+
+-- Top 10 district
+SELECT "DISTRICT", COUNT(*) AS cnt FROM violence_victims_raw GROUP BY "DISTRICT" ORDER BY cnt DESC LIMIT 10;
+
+-- Hourly distribution
+SELECT time_only AS hour_bucket, COUNT(*) FROM violence_victims_raw
+GROUP BY hour_bucket ORDER BY hour_bucket LIMIT 24;
+
+-- Yearly trend
+SELECT year_char, COUNT(*) FROM violence_victims_raw GROUP BY year_char ORDER BY year_char;

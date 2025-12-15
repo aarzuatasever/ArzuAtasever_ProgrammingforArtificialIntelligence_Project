@@ -1,0 +1,14 @@
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "MONTH" TYPE text;
+
+
+UPDATE public.violence_victims_raw
+SET "MONTH" = NULLIF(trim("MONTH"), '');
+
+UPDATE public.violence_victims_raw
+SET "MONTH" = NULL
+WHERE "MONTH" IS NOT NULL AND "MONTH" !~ '^[0-9]+$';
+
+
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "MONTH" TYPE int USING "MONTH"::int;

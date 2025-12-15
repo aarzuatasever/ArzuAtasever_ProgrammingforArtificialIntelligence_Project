@@ -1,0 +1,2 @@
+ALTER TABLE public.violence_victims_raw
+ADD CONSTRAINT pk_victims_clean PRIMARY KEY ("UNIQUE_ID");

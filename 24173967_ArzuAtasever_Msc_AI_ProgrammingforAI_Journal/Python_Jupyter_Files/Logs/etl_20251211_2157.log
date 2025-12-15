@@ -1,0 +1,28 @@
+2025-12-11 21:57:11,399 - INFO - ETL progress started.
+2025-12-11 21:59:50,199 - INFO - Data was successfully loaded into PostgreSQL.
+2025-12-12 00:22:11,280 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-12 00:22:11,332 - WARNING - No such comm: f970f723-ad42-42fa-aa76-7ee286c70bfd
+2025-12-12 01:21:52,402 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-12 01:21:52,413 - WARNING - No such comm: 03b7b527-e8f0-41d4-9f66-a93f6358c441
+2025-12-12 01:46:37,790 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-12 01:46:37,805 - WARNING - No such comm: 881e8009-6f5d-467c-9eac-b6702d07b498
+2025-12-12 12:16:18,968 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-12 12:16:18,996 - WARNING - No such comm: 359a0128-d18c-4cc7-83ed-cc78097db4cb
+2025-12-13 02:35:51,587 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-13 02:35:51,612 - WARNING - No such comm: b5ae2472-84bb-40d3-b4cb-0f420cd8c94e
+2025-12-13 03:28:11,120 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-13 03:28:11,136 - INFO - Using categorical units to plot a list of strings that are all parsable as floats or dates. If these strings should be plotted as numbers, cast to the appropriate data type before plotting.
+2025-12-13 13:53:35,631 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-13 13:53:35,693 - WARNING - No such comm: 4b0e02da-6c39-42e2-a48f-f455ab2e4b44
+2025-12-13 16:05:24,322 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-13 16:05:24,347 - WARNING - No such comm: 32c1a65c-0124-43d5-b668-5f7b42ae024f
+2025-12-13 18:06:21,839 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-13 18:06:21,884 - WARNING - No such comm: 67d0b15d-f2b1-4768-8e4c-88bc740ea40d
+2025-12-13 21:36:59,762 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-13 21:36:59,790 - WARNING - No such comm: 4a2e63ac-d46f-4b81-b949-d104c0f05e27
+2025-12-14 17:11:03,490 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-14 17:11:05,357 - WARNING - No such comm: cdd96183-1d42-4f75-8546-7bb8fcf2e70b
+2025-12-14 19:10:06,106 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-14 19:10:06,138 - WARNING - No such comm: b4555abd-a13d-4121-a705-569d14d9dc8d
+2025-12-14 20:46:53,010 - ERROR - No such comm target registered: jupyter.widget.control
+2025-12-14 20:46:53,039 - WARNING - No such comm: 2c92d6db-c5b1-47e2-8a15-d7d61453af88

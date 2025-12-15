@@ -1,0 +1,4 @@
+CREATE TYPE sex_type AS ENUM ('M','F','UNKNOWN');
+
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "SEX" TYPE sex_type USING "SEX"::sex_type;

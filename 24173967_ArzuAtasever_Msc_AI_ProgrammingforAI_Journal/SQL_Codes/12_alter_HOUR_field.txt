@@ -1,0 +1,14 @@
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "HOUR" TYPE text;
+
+
+UPDATE public.violence_victims_raw
+SET "HOUR" = NULLIF(trim("HOUR"), '');
+
+UPDATE public.violence_victims_raw
+SET "HOUR" = NULL
+WHERE "HOUR" IS NOT NULL AND "HOUR" !~ '^[0-9]+$';
+
+
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "HOUR" TYPE int USING "HOUR"::int;

@@ -1,0 +1,14 @@
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "DISTRICT" TYPE text;
+
+
+UPDATE public.violence_victims_raw
+SET "DISTRICT" = NULLIF(trim("DISTRICT"), '');
+
+UPDATE public.violence_victims_raw
+SET "DISTRICT" = NULL
+WHERE "DISTRICT" IS NOT NULL AND "DISTRICT" !~ '^[0-9]+$';
+
+
+ALTER TABLE public.violence_victims_raw
+ALTER COLUMN "DISTRICT" TYPE int USING "DISTRICT"::int;
